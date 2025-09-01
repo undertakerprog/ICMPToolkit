@@ -1,5 +1,7 @@
 ### Regular ping of several hosts
+```sh 
 sudo python3 ping_tool.py google.com yandex.ru 8.8.8.8
+```
 
 ### With traceroute
 ```sh 
