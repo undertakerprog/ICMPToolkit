@@ -1,0 +1,37 @@
+services:
+  attacker:
+    build: ./attacker
+    networks:
+      smurf_net:
+        ipv4_address: 172.28.0.10
+    cap_add:
+      - NET_RAW
+      - NET_ADMIN
+    tty: true
+
+  victim:
+    build: ./victim
+    networks:
+      smurf_net:
+        ipv4_address: 172.28.0.20
+    cap_add:
+      - NET_RAW
+      - NET_ADMIN
+    tty: true
+
+  responder:
+    build: ./responder
+    networks:
+      smurf_net:
+        ipv4_address: 172.28.0.30
+    cap_add:
+      - NET_RAW
+      - NET_ADMIN
+    tty: true
+
+networks:
+  smurf_net:
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.28.0.0/16
