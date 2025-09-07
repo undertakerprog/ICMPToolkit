@@ -10,7 +10,23 @@ sudo python3 ping_tool.py --traceroute google.com'
 
 ### Smurf attack
 ```sh 
-sudo python3 ping_tool.py --smurf --target 192.168.1.100 192.168.1.255
+sudo docker-compose up -d --build
+```
+```sh 
+sudo docker exec -it icmptoolkit-attacker-1 bash
+```
+```sh 
+sudo docker exec -it icmptoolkit-victim-1 bash
+```
+
+In attacker
+```sh 
+python ping_tool.py responder --smurf --target 172.28.0.20
+```
+
+In victim
+```sh 
+tcpdump -n icmp
 ```
 
 ### Setting parameters
